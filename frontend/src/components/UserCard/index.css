@@ -1,0 +1,19 @@
+.users-list li {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    list-style: none;
+}
+
+.user-link {
+    text-decoration: none;
+    color: black;
+}
+
+@media (min-width: 768px) {
+    .users-list li {
+        margin: 10px;
+        padding: 15px;
+    }
+}

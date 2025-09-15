@@ -1,0 +1,8 @@
+.link-item{
+    align-self: flex-start;
+}
+
+button{
+    cursor: pointer;
+    outline: none;
+}
