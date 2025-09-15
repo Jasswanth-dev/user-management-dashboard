@@ -4,7 +4,6 @@ import './index.css';
 const UserCard = (props) => {
     const {userDetails} = props;
     const {id, name, email, phone, company} = userDetails;
-    console.log(userDetails);
     return (
         <li>
             <Link to={`/user/${id}`} className="user-link">

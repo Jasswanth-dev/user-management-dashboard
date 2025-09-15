@@ -24,8 +24,20 @@ export const UserProvider = ({ children }) => {
     setUsers((prevUsers) => [...prevUsers, user]);
   }
 
+  const updateUser = (updatedData) => {
+    setUsers((prevUsers) =>
+      prevUsers.map((user) =>
+        user.id === updatedData.id ? { ...user, ...updatedData } : user
+      )
+    );
+  };
+
+  const deleteUser = (id) => {
+    setUsers((prevUsers) => prevUsers.filter((user) => user.id !== id));
+  };
+
   return (
-    <UserContext.Provider value={{users, addUser}}>
+    <UserContext.Provider value={{users, addUser, updateUser, deleteUser}}>
       {children}
     </UserContext.Provider>
   );
