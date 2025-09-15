@@ -70,6 +70,19 @@ router.put("/:id", (req, res) => {
     });
 });
 
+router.delete("/:id", (req, res) => {
+    const sql = 'DELETE FROM users WHERE id = ?';
+    db.run(sql, req.params.id, function(err) {
+        if (err) {
+            return res.status(500).json({ "error": err.message });
+        }
+        if (this.changes === 0) {
+            return res.status(404).json({ "error": "User not found" });
+        }
+        res.status(200).json({ "message": "User deleted successfully" });
+    });
+});
+
 
 
 module.exports = router;
