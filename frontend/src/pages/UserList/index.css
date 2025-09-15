@@ -1,0 +1,47 @@
+.bg-container {
+    background-color: white;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-heading {
+    text-align: center;
+}
+
+.users-list {
+    flex-grow: 1;
+    padding: 0;
+    list-style-type: none;
+}
+
+.users-list li {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.user-link {
+    text-decoration: none;
+    color: black;
+}
+
+@media (min-width: 768px) {
+    .bg-container {
+        padding: 10px;
+    }
+
+    .users-list {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .users-list li {
+        margin: 10px;
+        padding: 15px;
+    }
+}
