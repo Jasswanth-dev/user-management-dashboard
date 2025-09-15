@@ -18,4 +18,20 @@ router.get('/', (req, res) => {
     });
 });
 
+// Gets user by id 
+router.get("/:id", (req, res) => {
+    const sql = "SELECT * FROM users WHERE id = ?";
+    db.get(sql, [req.params.id], (err, row) => {
+        if (err) {
+            return res.status(500).json({ "error": err.message });
+        }
+        if (!row) {
+            return res.status(404).json({ "error": "User not found" });
+        }
+        res.status(200).json({ data: row });
+    });
+});
+
+
+
 module.exports = router;
