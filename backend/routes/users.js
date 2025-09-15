@@ -32,6 +32,40 @@ router.get("/:id", (req, res) => {
     });
 });
 
+router.post("/", (req, res) => {
+    const { name, email, phone, company, street, city, zipcode, lat, lng } = req.body;
+    if (!name || !email) {
+        return res.status(400).json({ "error": "Name and email are required fields." });
+    }
+
+    const sql = `INSERT INTO users (name, email, phone, company, street, city, zipcode, lat, lng) VALUES (?,?,?,?,?,?,?,?,?)`;
+    const params = [name, email, phone, company, street, city, zipcode, lat, lng];
+
+    db.run(sql, params, function(err) {
+        if (err) {
+            return res.status(400).json({ "error": err.message }); // e.g., UNIQUE constraint failed
+        }
+        res.status(201).json({ id: this.lastID });
+    });
+});
+
+router.post("/", (req, res) => {
+    const { name, email, phone, company, street, city, zipcode, lat, lng } = req.body;
+    if (!name || !email) {
+        return res.status(400).json({ "error": "Name and email are required fields." });
+    }
+
+    const sql = `INSERT INTO users (name, email, phone, company, street, city, zipcode, lat, lng) VALUES (?,?,?,?,?,?,?,?,?)`;
+    const params = [name, email, phone, company, street, city, zipcode, lat, lng];
+
+    db.run(sql, params, function(err) {
+        if (err) {
+            return res.status(400).json({ "error": err.message }); // e.g., UNIQUE constraint failed
+        }
+        res.status(201).json({ id: this.lastID });
+    });
+});
+
 
 
 module.exports = router;
