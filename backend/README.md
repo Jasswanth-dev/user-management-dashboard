@@ -22,7 +22,7 @@ This API provides endpoints to manage users for a dashboard application.
 
 # 🚀 Setup and Run User Management API
 ```bash
-git clone https://github.com/your-username/user-management-api.git
+git clone https://github.com/Jasswanth-dev/user-management-dashboard.git
 cd user-management-api
 npm install
 npm start
